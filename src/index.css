@@ -1,0 +1,6 @@
+@import 'tailwindcss';
+
+/* 필요하면 여기에 전역 기본 스타일을 추가하세요. */
+:root {
+  color-scheme: light dark;
+}
