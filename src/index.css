@@ -19,9 +19,70 @@
   font-style: normal;
 }
 
-.memorySealImage {
+.topMemorySealImage {
   background-image: url('./images/Group\ 6.png');
   width: 199px;
   height: 199px;
   background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.bottomMemorySealImage {
+  background-image: url('./images/Group\ 7.png');
+  width: 314px;
+  height: 314px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.ticketImage {
+  background-image: url('./images/Ticket.svg');
+  width: 325px;
+  height: 397px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.lineImage {
+  background-image: url('./images/Line\ 9.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.googleStoreImage {
+  background-image: url('./images/image\ 10.png');
+  width: 99px;
+  height: 22px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.appleStoreImage {
+  background-image: url('./images/image\ 8.png');
+  width: 53px;
+  height: 30px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.copyButtonImage {
+  background-image: url('./images/CopyButton.svg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.copyIcon {
+  background-image: url('./images/Copy.svg');
+  width: 16px;
+  height: 16px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
