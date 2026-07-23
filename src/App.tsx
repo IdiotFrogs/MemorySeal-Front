@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './index.css'
+import { openAppOrStore } from './utils/deeplink'
 
 function App() {
   const ticketCode = '12D9W6'
@@ -33,7 +34,8 @@ function App() {
             <div className="lineImage absolute left-0 top-full mt-[52px] w-[82px] h-[7px]" />
             <DescriptionTextComponent
               message="메실 설치하러가기"
-              className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 top-full mt-[55.5px]"
+              className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 top-full mt-[55.5px] cursor-pointer"
+              onClick={() => openAppOrStore()}
             />
             <div className="lineImage absolute right-0 top-full mt-[52px] w-[82px] h-[7px]" />
 
@@ -66,13 +68,16 @@ const TitleTextComponent = ({ message }: { message: string }) => {
 const DescriptionTextComponent = ({
   message,
   className,
+  onClick,
 }: {
   message: string
   className?: string
+  onClick?: () => void
 }) => {
   return (
     <p
       className={className}
+      onClick={onClick}
       style={{
         color: '#1A1A1A',
         fontFamily: 'Pretendard',
