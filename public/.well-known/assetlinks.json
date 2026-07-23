@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.idiotfrogs.memoryseal",
+      "sha256_cert_fingerprints": [
+        "10:60:60:32:2F:97:E0:87:BE:51:10:C0:75:44:FB:60:6D:AC:DC:A9:B2:5C:DF:0F:49:99:EA:C8:BD:73:14:6D"
+      ]
+    }
+  }
+]

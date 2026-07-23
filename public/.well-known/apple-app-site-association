@@ -1,0 +1,18 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "5GD5Q99952.io.tuist.MemorySeal",
+        "appIDs": ["5GD5Q99952.io.tuist.MemorySeal"],
+        "paths": ["*"],
+        "components": [
+          {
+            "/": "*",
+            "comment": "모든 경로에서 앱 열기"
+          }
+        ]
+      }
+    ]
+  }
+}
