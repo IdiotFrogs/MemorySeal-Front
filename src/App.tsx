@@ -1,11 +1,23 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './index.css'
-import { openAppOrStore, getLinkParams } from './utils/deeplink'
+import { openAppOrStore, getLinkParams, getMobileOS } from './utils/deeplink'
 
 function App() {
   // URL 파라미터: code(UI 표시), action/capsuleId(앱에 전달)
   const linkParams = getLinkParams()
   const ticketCode = linkParams.code ?? '12D9W6'
+
+  // 페이지 진입 시 자동 리다이렉트: 모바일이면 앱 열기 시도 → 미설치면 스토어
+  // (데스크탑은 랜딩 화면/QR 카드를 그대로 보여줌)
+  useEffect(() => {
+    if (getMobileOS() !== 'other') {
+      openAppOrStore({
+        action: linkParams.action,
+        capsuleId: linkParams.capsuleId,
+      })
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <div className="gradation bg-[linear-gradient(284deg,#FFFFE5_-6.94%,#43CB62_92.53%,#51D8B1_170.32%)] relative w-full min-h-screen h-[1080px] z-50 flex flex-col items-center">
