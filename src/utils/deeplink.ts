@@ -35,11 +35,39 @@ export function goToStore() {
   else window.location.href = DEFAULT_STORE_URL
 }
 
+// 딥링크 파라미터
+// - code: 웹 UI에 보여지는 코드 값
+// - action / capsuleId: 앱(Universal/App Link)에 전달할 값
+export type LinkParams = {
+  code?: string
+  action?: string
+  capsuleId?: string
+}
+
+/** 현재 URL 쿼리에서 딥링크 파라미터 파싱 */
+export function getLinkParams(): LinkParams {
+  const p = new URLSearchParams(window.location.search)
+  return {
+    code: p.get('code') ?? undefined,
+    action: p.get('action') ?? undefined,
+    capsuleId: p.get('capsuleId') ?? undefined,
+  }
+}
+
+/** 앱에 전달할 값(action, capsuleId)만 쿼리스트링으로 조립 */
+function buildAppQuery(params: LinkParams): string {
+  const q = new URLSearchParams()
+  if (params.action) q.set('action', params.action)
+  if (params.capsuleId) q.set('capsuleId', params.capsuleId)
+  const s = q.toString()
+  return s ? `?${s}` : ''
+}
+
 /**
  * 앱 열기를 시도하고, 일정 시간 안에 안 열리면(=미설치) 스토어로 안내.
- * @param path 앱 내부 경로 (예: 'ticket/12D9W6')
+ * @param params 앱에 전달할 값 (action, capsuleId 등)
  */
-export function openAppOrStore(path = '') {
+export function openAppOrStore(params: LinkParams = {}) {
   const os = getMobileOS()
   if (os === 'other') {
     goToStore()
@@ -48,7 +76,8 @@ export function openAppOrStore(path = '') {
 
   const start = Date.now()
   // 앱 스킴으로 열기 시도 (설치돼 있으면 앱이 뜸)
-  window.location.href = `${APP_SCHEME}${path}`
+  // 스킴 형식(host/path)은 앱 정의에 맞게 APP_SCHEME 조정 필요
+  window.location.href = `${APP_SCHEME}${buildAppQuery(params)}`
 
   // 앱이 떴으면 페이지가 백그라운드로 가서 타이머가 지연/중단됨.
   // 여전히 화면이 보이면(=앱 안 열림) 스토어로 보냄.

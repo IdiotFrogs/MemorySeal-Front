@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import './index.css'
-import { openAppOrStore } from './utils/deeplink'
+import { openAppOrStore, getLinkParams } from './utils/deeplink'
 
 function App() {
-  const ticketCode = '12D9W6'
+  // URL 파라미터: code(UI 표시), action/capsuleId(앱에 전달)
+  const linkParams = getLinkParams()
+  const ticketCode = linkParams.code ?? '12D9W6'
 
   return (
     <div className="gradation bg-[linear-gradient(284deg,#FFFFE5_-6.94%,#43CB62_92.53%,#51D8B1_170.32%)] relative w-full min-h-screen h-[1080px] z-50 flex flex-col items-center">
@@ -35,7 +37,12 @@ function App() {
             <DescriptionTextComponent
               message="메실 설치하러가기"
               className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 top-full mt-[55.5px] cursor-pointer"
-              onClick={() => openAppOrStore()}
+              onClick={() =>
+                openAppOrStore({
+                  action: linkParams.action,
+                  capsuleId: linkParams.capsuleId,
+                })
+              }
             />
             <div className="lineImage absolute right-0 top-full mt-[52px] w-[82px] h-[7px]" />
 
