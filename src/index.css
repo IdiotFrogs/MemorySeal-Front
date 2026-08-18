@@ -1,8 +1,9 @@
 @import 'tailwindcss';
 
-/* 필요하면 여기에 전역 기본 스타일을 추가하세요. */
+/* 디자인이 라이트 테마 전용이라 다크 모드 캔버스를 쓰지 않습니다.
+   (배경 그라데이션이 알파 30%라 캔버스 색이 그대로 비칩니다.) */
 :root {
-  color-scheme: light dark;
+  color-scheme: light;
 }
 
 @font-face {
@@ -14,61 +15,35 @@
 
 @font-face {
   font-family: 'Pretendard'; /* 사용할 폰트의 이름을 정의 */
-  src: url('./fonts/Pretendard-Bold.otf') format('truetype'); /* 폰트 파일의 위치 */
-  font-weight: normal;
+  src: url('./fonts/Pretendard-Bold.otf') format('opentype'); /* 폰트 파일의 위치 */
+  font-weight: 700; /* 파일 자체가 Bold라 700으로 선언해야 합성 볼드가 걸리지 않음 */
   font-style: normal;
 }
 
-.topMemorySealImage {
-  background-image: url('./images/Group\ 6.png');
-  width: 199px;
-  height: 199px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+/* 페이지 배경: 우하단(민트/그린) → 좌상단(크림)으로 흐르는 30% 알파 그라데이션 */
+.pageGradient {
+  background-color: #ffffff;
+  background-image: linear-gradient(
+    -72.06deg,
+    rgba(81, 216, 177, 0.3) 0.95%,
+    rgba(67, 203, 98, 0.3) 13.8%,
+    rgba(255, 255, 229, 0.3) 125.83%
+  );
 }
 
-.bottomMemorySealImage {
-  background-image: url('./images/Group\ 7.png');
-  width: 314px;
-  height: 314px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
+/* 티켓 프레임(손그림 테두리 + 초록 헤더 + 회색 내부 박스).
+   내부 텍스트/버튼은 이 박스 좌표계 위에 절대 배치합니다. */
 .ticketImage {
   background-image: url('./images/Ticket.svg');
-  width: 325px;
-  height: 397px;
-  background-size: contain;
+  background-size: 325px 398px;
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .lineImage {
   background-image: url('./images/Line\ 9.svg');
-  background-size: contain;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
-  background-position: center;
-}
-
-.googleStoreImage {
-  background-image: url('./images/image\ 10.png');
-  width: 99px;
-  height: 22px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.appleStoreImage {
-  background-image: url('./images/image\ 8.png');
-  width: 53px;
-  height: 30px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
 }
 
 .copyButtonImage {
