@@ -1,6 +1,7 @@
 import { useEffect, useState, type CSSProperties } from 'react'
 import './index.css'
 import { openAppOrStore, getLinkParams, getMobileOS } from './utils/deeplink'
+import { logVisitSharedWeb } from './utils/analytics'
 import qrImage from './images/qr.png'
 import googlePlayBadge from './images/google-play.png'
 import appStoreBadge from './images/app-store.png'
@@ -33,6 +34,8 @@ function App() {
   // 페이지 진입 시 자동 리다이렉트: 모바일이면 앱 열기 시도 → 미설치면 스토어
   // (데스크탑은 랜딩 화면/QR 카드를 그대로 보여줌)
   useEffect(() => {
+    logVisitSharedWeb()
+
     if (getMobileOS() !== 'other') {
       goToApp()
     }
