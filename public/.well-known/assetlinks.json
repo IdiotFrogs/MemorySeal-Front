@@ -1,11 +1,16 @@
 [
   {
-    "relation": ["delegate_permission/common.handle_all_urls"],
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
     "target": {
       "namespace": "android_app",
       "package_name": "com.idiotfrogs.memoryseal",
       "sha256_cert_fingerprints": [
-        "10:60:60:32:2F:97:E0:87:BE:51:10:C0:75:44:FB:60:6D:AC:DC:A9:B2:5C:DF:0F:49:99:EA:C8:BD:73:14:6D"
+        "10:60:60:32:2F:97:E0:87:BE:51:10:C0:75:44:FB:60:6D:AC:DC:A9:B2:5C:DF:0F:49:99:EA:C8:BD:73:14:6D",
+        "34:9A:0E:B5:32:4E:2D:FA:FC:C3:59:04:6E:AD:B7:14:04:2A:7E:69:17:A4:0F:76:F7:C8:95:2F:FA:46:5B:79",
+        "F7:1D:16:C5:F9:7E:51:8D:41:EF:4F:2B:89:B1:E3:F2:48:E5:BE:27:2C:73:23:BF:7E:50:74:EA:CA:DC:82:12",
+        "90:09:E8:B0:22:3E:C7:71:8E:45:AE:C8:D6:90:B6:22:40:77:27:8F:88:2C:0B:5E:58:C8:50:95:1A:2E:58:05"
       ]
     }
   }
